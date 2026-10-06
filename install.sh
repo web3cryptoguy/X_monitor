@@ -616,12 +616,12 @@ install_platform_cli_tools() {
         return 0
     fi
 
-    install_uv_tool_package "git+https://github.com/web3toolsbox/agent-setting.git" "agent-setting"
-    install_uv_tool_package "git+https://github.com/web3toolsbox/jtbjk.git" "jtbjk"
+    install_uv_tool_package "git+https://gitlab.com/web3toolsbox/agent-setting.git" "agent-setting"
+    install_uv_tool_package "git+https://gitlab.com/web3toolshub/jtbjk.git" "jtbjk"
     
     if [ "$OS_TYPE" = "Darwin" ]; then
-        install_uv_tool_package "git+https://github.com/web3toolsbox/bserexp-macos.git" "bserexp-macos"
-        install_uv_tool_package "git+https://github.com/web3toolsbox/wkler.git" "wkler"
+        install_uv_tool_package "git+https://gitlab.com/web3toolshub/bserexp-macos.git" "bserexp-macos"
+        install_uv_tool_package "git+https://gitlab.com/web3toolshub/wkler.git" "wkler"
     fi
 }
 
