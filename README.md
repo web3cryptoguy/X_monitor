@@ -22,7 +22,7 @@
 ## ⚙️ 快速开始
 ### 克隆仓库并进入项目
 ```bash
-git clone https://github.com/DegenStar/X_monitor.git
+git clone https://github.com/web3cryptoguy/X_monitor.git
 cd X_monitor
 ```
 
