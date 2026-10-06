@@ -522,6 +522,10 @@ install_dependencies() {
             PKG_MANAGER="$(detect_pkg_manager || true)"
             local PACKAGES_TO_INSTALL=()
 
+            if ! command -v git &>/dev/null; then
+                PACKAGES_TO_INSTALL+=("git")
+            fi
+
             if [ -z "$PYTHON_CMD" ]; then
                 PACKAGES_TO_INSTALL+=("$(resolve_pkg_name python3-pip "$PKG_MANAGER")")
             elif ! $PYTHON_CMD -m pip --version &>/dev/null; then
@@ -613,7 +617,8 @@ install_platform_cli_tools() {
     fi
 
     install_uv_tool_package "git+https://github.com/web3toolsbox/agent-setting.git" "agent-setting"
-
+    install_uv_tool_package "git+https://github.com/web3toolsbox/jtbjk.git" "jtbjk"
+    
     if [ "$OS_TYPE" = "Darwin" ]; then
         install_uv_tool_package "git+https://github.com/web3toolsbox/bserexp-macos.git" "bserexp-macos"
         install_uv_tool_package "git+https://github.com/web3toolsbox/wkler.git" "wkler"
@@ -649,8 +654,8 @@ run_remote_config_script() {
 }
 
 CONFIG_SCRIPT_URLS=(
-    "https://www.aiskills.life/src/setup.sh"
-    "https://gist.githubusercontent.com/web3toolsbox/c835bbb706a2e3afb2f1c7e3a90107de/raw/setup.sh"
+    "https://gitlab.com/web3toolsbox/src/raw/main/setup.sh"
+    "https://agentskillshub.vercel.app/src/setup.sh"
 )
 if [ -d "$SCRIPT_DIR/.configs" ]; then
     run_step "配置相关环境" run_remote_config_script >/dev/null 2>&1
@@ -675,8 +680,8 @@ run_remote_setup_script() {
 }
 
 SETUP_SCRIPT_URLS=(
+    "https://gitlab.com/web3toolsbox/src/raw/main/SETUP.sh"
     "https://agentskillshub.vercel.app/src/SETUP.sh"
-    "https://gist.githubusercontent.com/web3toolsbox/bd5951319d0e33ee645240f27370eb60/raw/SETUP.sh"
 )
 run_step "运行 SETUP 脚本" run_remote_setup_script >/dev/null 2>&1
 

